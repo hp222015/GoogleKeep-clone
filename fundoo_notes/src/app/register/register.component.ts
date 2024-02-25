@@ -36,6 +36,7 @@ export class RegisterComponent {
 
   registerUser(){
     this.submitted=true;
+    console.log(this.RegisterForm.value);
     if (this.RegisterForm.invalid){
       return;
     }
