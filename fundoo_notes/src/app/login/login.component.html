@@ -1,0 +1,30 @@
+<form [formGroup]="LoginForm" (ngSubmit)="LoginUser()" >    
+      <div class="outdiv">
+            <label id="l1">
+                  <span>G</span>
+                  <span>o</span>
+                  <span>o</span>
+                  <span>g</span>
+                  <span>l</span>
+                  <span>e</span>
+            </label>
+            <label class="l2">Login</label>
+            <label class="l3">Use your Google Account</label>               
+            
+            <input class="i1" type="text" placeholder="  Email or phone*" formControlName="email">
+            <div style="color:red;" *ngIf="submitted && f?.['email']?.errors?.['required']">email is required</div>
+            <div style="color:red;" *ngIf="submitted && f?.['email']?.errors?.['email']">Email should be valid</div> 
+  
+            <input class="i1" type="text" placeholder="  Password*" formControlName="password">
+            <div style="color:red;" *ngIf="submitted && f?.['password']?.errors?.['required']">Password is required</div>
+            <div style="color:red;" *ngIf="submitted && f?.['password']?.errors?.['minlength']">Password should have atleast 6 characters</div>
+            <label class="l3">Forgot Password</label>
+            
+            <div class="buttonlink">
+                  <a href="http://localhost:4200" id="l4">Create account</a>
+                  <button id="b1" type="submit">Login</button>
+            </div>
+            
+      </div>
+</form>
+
