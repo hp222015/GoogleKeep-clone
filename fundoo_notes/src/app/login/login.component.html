@@ -11,18 +11,25 @@
             <label class="l2">Login</label>
             <label class="l3">Use your Google Account</label>               
             
-            <input class="i1" type="text" placeholder="  Email or phone*" formControlName="email">
+
+        <mat-form-field  appearance="outline">
+            <input class="i1" type="email" matInput  placeholder="  Email or phone*" formControlName="email">
+            <mat-label>Email</mat-label>
             <div style="color:red;" *ngIf="submitted && f?.['email']?.errors?.['required']">email is required</div>
             <div style="color:red;" *ngIf="submitted && f?.['email']?.errors?.['email']">Email should be valid</div> 
-  
-            <input class="i1" type="text" placeholder="  Password*" formControlName="password">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <input  type="text"  matInput placeholder="  Password*" formControlName="password">
             <div style="color:red;" *ngIf="submitted && f?.['password']?.errors?.['required']">Password is required</div>
             <div style="color:red;" *ngIf="submitted && f?.['password']?.errors?.['minlength']">Password should have atleast 6 characters</div>
-            <label class="l3">Forgot Password</label>
+            
+        </mat-form-field>
+        <a  href="">Forgot Password</a>
             
             <div class="buttonlink">
                   <a href="http://localhost:4200" id="l4">Create account</a>
-                  <button id="b1" type="submit">Login</button>
+                  <button mat-raised-button color="primary" type="submit">Login</button>                  
             </div>
             
       </div>

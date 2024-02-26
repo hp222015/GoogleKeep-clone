@@ -20,33 +20,40 @@
                         <div style="color:red;" *ngIf="submitted && f?.['firstName']?.errors?.['minlength']">First Name should have at least 3 characters</div>                         
                      </mat-form-field> 
                      
-                     <mat-form-field> 
+                     <mat-form-field appearance="outline"> 
                         <input matInput class="f1" type= text  placeholder="   Last Name*"  formControlName="lastName">  
                         <div style="color:red;" *ngIf="submitted && f?.['lastName']?.errors?.['required']">Last Name is required</div>
                         <div style="color:red;" *ngIf="submitted && f?.['lastName']?.errors?.['minlength']">Last Name should have atleast 3 characters</div>                         
-                      </mat-form-field>                     
-                              
+                      </mat-form-field>                          
                   </div>
-                  <input id="u1" type= text placeholder="   Username*"  formControlName="userName">
+                  <mat-form-field appearance="outline">
+                  <input matInput id="u1" type= text placeholder="   Username*"  formControlName="userName">
                   <div style="color:red;" *ngIf="submitted && f?.['userName']?.errors?.['required']">User Name is required</div>
-                  <div style="color:red;" *ngIf="submitted && f?.['userName']?.errors?.['email']">Email should be valid</div> 
+                  <div style="color:red;" *ngIf="submitted && f?.['userName']?.errors?.['email']">Email should be valid</div>
+                  </mat-form-field>
+                  
                   <div class="name">
-                  <input class="f1" type= text placeholder="   Password*"  formControlName="password">
-                  <div style="color:red;" *ngIf="submitted && f?.['password']?.errors?.['required']">Password is required</div>   
-                  <div style="color:red;" *ngIf="submitted && f?.['password']?.errors?.['minlength']">Password should have atleast 3 characters</div>  
-                  <input class="f1" type= text placeholder="   Confirm*" formControlName="cnf_pswd" >
-                  <div style="color:red;" *ngIf="submitted && f['cnf_pswd'].errors?.['passwordMismatch']">
-                     Password and Confirm Password do not match
-                   </div>          
+                     <mat-form-field appearance="outline">
+                        <input matInput class="f1" type= text placeholder="   Password*"  formControlName="password">
+                        <div style="color:red;" *ngIf="submitted && f?.['password']?.errors?.['required']">Password is required</div>   
+                        <div style="color:red;" *ngIf="submitted && f?.['password']?.errors?.['minlength']">Password should have atleast 3 characters</div>  
+                     </mat-form-field>
+
+                     <mat-form-field appearance="outline">
+                        <input matInput class="f1" type= text placeholder="   Confirm*" formControlName="cnf_pswd" >
+                        <div style="color:red;" *ngIf="submitted && f['cnf_pswd'].errors?.['passwordMismatch']">
+                        Password and Confirm Password do not match
+                        </div>  
+                     </mat-form-field>        
                   </div>
                   <div class="check">
-                     <input type= "checkbox"> Show Password
+                     <mat-checkbox class="example-margin">Show Password</mat-checkbox>                     
                   </div>   
                   <div class="buttons">
                      <a href="http://localhost:4200/login">Sign in</a>
                      <button mat-raised-button color="primary" type="submit" id="b1">Next</button>                     
                   </div>
-               </div>
+         </div>
                <div class="img">
                   <img id=img1 src="https://gcloud.devoteam.com/wp-content/uploads/sites/32/2022/03/google-accounts.png ">
                   <br>
