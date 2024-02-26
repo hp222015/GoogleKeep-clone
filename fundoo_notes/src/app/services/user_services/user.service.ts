@@ -13,6 +13,8 @@ export class UserService {
   }
   loginUser(data:object){
     return this.http.loginApi(data);
-
+  }
+  registerUser(data:object){
+    return this.http.registerApi(data);
   }
 }

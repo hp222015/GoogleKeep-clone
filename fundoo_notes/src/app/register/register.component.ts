@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import {FormBuilder,FormControl, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../services/user_services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -20,13 +21,12 @@ export class RegisterComponent {
 
   }
 
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder, public userService:UserService){
     this.RegisterForm =this.formBuilder.group({
       firstName:["",[Validators.required,Validators.minLength(3)]],
       lastName:["",[Validators.required,Validators.minLength(3)]],
       userName:["",[Validators.required,Validators.email]],
-      password:["",[Validators.required,Validators.minLength(6)]],
-      cnf_pswd: ["", Validators.required, this.passwordMatchValidator]
+      password:["",[Validators.required,Validators.minLength(6)]]
     });
   }
 
@@ -36,22 +36,20 @@ export class RegisterComponent {
 
   registerUser(){
     this.submitted=true;
-    console.log(this.RegisterForm.value);
     if (this.RegisterForm.invalid){
       return;
     }
-  }
-
-
-  passwordMatchValidator: ValidatorFn = (control: AbstractControl): { [key: string]: boolean } | null => {
-    const password = control.get('password');
-    const confirmPassword = control.get('cnf_pswd');
-
-    if (password && confirmPassword && password.value !== confirmPassword.value) {
-      return { 'passwordMismatch': true };
-    }
-
-    return null;
+    const{firstName,lastName,userName,password}=this.RegisterForm.value
+    
+    this.userService.registerUser({
+      "firstName":firstName,
+      "lastName":lastName,
+      "service":"advance",
+      "email":userName,
+      "password":password
+      
+    }).subscribe((result)=>{console.log(result);},(error)=>{console.log(error);})
+    console.log(this.RegisterForm.value);
   }
 }
 
