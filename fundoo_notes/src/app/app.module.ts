@@ -5,21 +5,46 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { KeepViewComponent } from './components/keep-view/keep-view.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import { NotecardComponent } from './components/notecard/notecard.component';
+import { NotesContainerComponent } from './components/notes-container/notes-container.component';
+import { ArchiveContainerComponent } from './components/archive-container/archive-container.component';
+import { TrashContainerComponent } from './components/trash-container/trash-container.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    KeepViewComponent,
+    NotecardComponent,
+    NotesContainerComponent,
+    ArchiveContainerComponent,
+    TrashContainerComponent,
+    DashboardComponent,
+    SideNavComponent
   ],
   imports: [
+    MatListModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
     HttpClientModule,
     FormsModule,
     MatButtonModule,

@@ -1,0 +1,92 @@
+<!-- <mat-toolbar color="primary">
+      <mat-toolbar-row>
+            <button mat-icon-button>
+                  <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+            </button>            
+            <h1>Angular</h1>
+      </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+      <mat-sidenav #sidenav opened="true" side="mode">
+            <mat-nav-list>
+                  <a mat-list-item>Home</a>
+                  <a mat-list-item>Home</a>
+                  <a mat-list-item>Home</a>
+                  <a mat-list-item>Home</a>
+            </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+            <div style="height:88vh">
+               <router-outlet></router-outlet>
+            </div>
+      </mat-sidenav-content>
+</mat-sidenav-container>
+
+       -->
+<div class="container">
+  <div class="header">
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <button>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="menu"
+            class="menuicon"
+          ></mat-icon>
+        </button>
+        <img
+          src="https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png"
+          alt="logo"
+          width="40px"
+          class="logo"
+        />
+        <h1 id="heading">Keep</h1>
+        <input type="search" matInput placeholder="Search" id="search" />
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example refresh icon"
+          fontIcon="refresh"
+          id="icons"
+        ></mat-icon>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example list-view icon"
+          fontIcon="list-view"
+          class="icon"
+        ></mat-icon>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example settings icon"
+          fontIcon="settings"
+          class="icon"
+        ></mat-icon>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example app icon"
+          fontIcon="apps"
+          class="appicon"
+        ></mat-icon>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <div class="content">
+    <!-- <div class="sidenav">
+                  <mat-sidenav-container>
+                      <mat-sidenav #sidenav>
+                          <mat-nav-list>
+                              <a mat-list-item>Notes</a>
+                              <a mat-list-item>Reminders</a>
+                              <a mat-list-item>Edit labels</a>
+                              <a mat-list-item>Archive</a>
+                              <a mat-list-item>Trash</a>
+                          </mat-nav-list>
+                      </mat-sidenav>
+                      <mat-sidenav-content>
+                          <div style="height: 88vh;"></div>
+                      </mat-sidenav-content>
+                  </mat-sidenav-container>
+              </div> -->
+    <div class="container-content"></div>
+  </div>
+</div>

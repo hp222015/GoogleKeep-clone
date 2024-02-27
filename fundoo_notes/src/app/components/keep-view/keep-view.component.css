@@ -1,0 +1,38 @@
+.menuicon {
+      border-radius: 0px;
+  }
+  .logo {
+      margin-left: 20px;
+  }
+  #heading {
+      margin-left: 10px;
+  }
+  #search {
+      margin-left: 110px;
+      width: 55%;
+      height: 65%;
+      border-radius: 5px;
+  }
+  
+#icons {
+      margin-left: 50px;
+  }
+  
+  .icon {
+      margin-left: 20px;
+  }
+  
+  .appicon {
+      margin-left: 70px;
+  }
+  .sidenav {
+      width: 8.5%;
+      position: fixed;
+  }
+  .content {
+      display: flex;
+      flex-direction: row;
+  }
+  .container-content {
+      margin-left: 10%;
+  }
