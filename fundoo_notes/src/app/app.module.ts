@@ -24,6 +24,7 @@ import { ArchiveContainerComponent } from './components/archive-container/archiv
 import { TrashContainerComponent } from './components/trash-container/trash-container.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { CreateNoteComponent } from './components/create-note/create-note.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
     ArchiveContainerComponent,
     TrashContainerComponent,
     DashboardComponent,
-    SideNavComponent
+    SideNavComponent,
+    CreateNoteComponent
   ],
   imports: [
     MatListModule,

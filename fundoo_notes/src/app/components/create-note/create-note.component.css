@@ -1,0 +1,44 @@
+.outer{
+      width:100%;
+      height:80%;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      gap:2%;
+      padding:2%;
+}
+.inner-head{
+      width:40vw;
+      height:8vh;
+      display:flex;
+      box-sizing: border-box;
+      border: 2px solid black;
+      padding:0.5%;
+      gap:5%;
+      
+}
+#note-head{
+    height:6vh;
+    width:80%;
+    border:none;
+}
+.inner-body{
+      width:40vw;
+      height:140vh;
+      display:flex;
+      box-sizing: border-box;
+      flex-direction: column;
+      gap:15%;
+      padding:0.5%;
+      border: 2px solid black;
+      background-color: yellow;
+      
+}
+.icon{
+      display:flex;
+      gap:5%;
+}
+#close{
+      margin-left: 5rem;
+      margin-bottom:3rem;
+}

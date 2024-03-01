@@ -1,1 +1,14 @@
-<mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon"></mat-icon>
+
+<div class="note" [style.backgroundColor]="noteDetails.color">
+      <span>{{ noteDetails.title }}</span>
+      <span>{{ noteDetails.description }}</span>
+      
+      <div class="icons">
+            <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon"></mat-icon> 
+            <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="collabrator icon"></mat-icon>             
+            <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color pallatte icon"></mat-icon> 
+            <mat-icon svgIcon="img-icon" aria-hidden="false" aria-label="img icon"></mat-icon>        
+            <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="archive icon"></mat-icon> 
+            <mat-icon svgIcon="more-icon" aria-hidden="false" aria-label="more icon"></mat-icon> 
+      </div>
+</div>

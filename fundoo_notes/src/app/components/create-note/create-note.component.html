@@ -1,0 +1,37 @@
+<div class="outer"> 
+<div *ngIf="takeNote; else addNote" (click)="handleCreateNote('open')">
+      <div class="inner-head">
+            <input id="note-head" type="text" placeholder="Take a note">
+            <mat-icon svgIcon="tick-icon" aria-hidden="false" aria-label="tick icon"></mat-icon> 
+            <mat-icon svgIcon="brush-icon" aria-hidden="false" aria-label="brush icon"></mat-icon>             
+            <mat-icon svgIcon="img-icon" aria-hidden="false" aria-label="img icon"></mat-icon> 
+      </div>
+</div>
+
+
+      <ng-template #addNote>
+            <div class="inner-body">
+                  <div class="create-note-title-cnt">
+                        <input [(ngModel)]="title"  type="text" placeholder="title">
+                  </div>
+                  <div class="desc">
+                        <input [(ngModel)]="description" type="text" placeholder="description">
+                  </div>
+                  <div class="icon">
+                  <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon"></mat-icon> 
+                  <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="collabrator icon"></mat-icon>             
+                  <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color pallatte icon"></mat-icon> 
+                  <mat-icon svgIcon="img-icon" aria-hidden="false" aria-label="img icon"></mat-icon>        
+                  <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="archive icon"></mat-icon> 
+                  <mat-icon svgIcon="more-icon" aria-hidden="false" aria-label="more icon"></mat-icon>
+                  <mat-icon svgIcon="undo-icon" aria-hidden="false" aria-label="more icon"></mat-icon>
+                  <mat-icon svgIcon="redo-icon" aria-hidden="false" aria-label="more icon"></mat-icon>
+                  <button id="close" mat-raised-button color="primary" (click)="handleCreateNote('close')">Close</button>
+                  </div>
+                  
+                  
+            </div>
+            
+      </ng-template>
+       
+ </div>

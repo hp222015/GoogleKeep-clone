@@ -1,0 +1,14 @@
+.note{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width:25vw;
+      height:20vh;
+      gap:5%;
+      border:2px solid black;
+}
+.icons{
+      display:flex;
+      gap:5%;
+}
