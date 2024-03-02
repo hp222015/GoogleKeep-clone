@@ -23,7 +23,7 @@ export class NotesContainerComponent {
       "id":"123"
     }
   ]
-  constructor( iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public noteServie: NoteService) {
+  constructor( iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public noteService: NoteService) {
     iconRegistry.addSvgIconLiteral('tick-icon', sanitizer.bypassSecurityTrustHtml(TICK_ICON));
     iconRegistry.addSvgIconLiteral('brush-icon', sanitizer.bypassSecurityTrustHtml(BRUSH_ICON));
     iconRegistry.addSvgIconLiteral('img-icon', sanitizer.bypassSecurityTrustHtml(IMG_ICON));
@@ -39,9 +39,9 @@ export class NotesContainerComponent {
 
   }
   ngOnInit(): void {
-    // this.noteServie.getNoteListCall().subscribe((result: any)=>{this.noteList=result.data.data
-    // console.log(this.noteList);
-    // },(error)=>{console.log(error)})
+    this.noteService.getNoteListCall().subscribe((result: any)=>{this.noteList=result.data.data
+    console.log(this.noteList);
+    },(error)=>{console.log(error)})
   }
 
   updateNoteList($event:NoteObj ){

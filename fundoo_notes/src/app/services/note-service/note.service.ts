@@ -13,4 +13,9 @@ export class NoteService {
   {
     return this.httpService.getNoteList()
   }
+
+  addNoteCall(data: object)
+  {
+    return this.httpService.addNote(data);
+  }
 }

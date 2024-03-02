@@ -5,5 +5,7 @@
 .note-card{
       width:30%;
       height:20%;
-      margin-left:10%;      
+      margin-left:10%;  
+      display:flex;
+      gap: 10px;    
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { NoteService } from 'src/app/services/note-service/note.service';
 
 interface NoteObj {
   "title":string,
@@ -12,17 +13,21 @@ interface NoteObj {
   styleUrls: ['./create-note.component.css']
 })
 
-export class CreateNoteComponent {
+export class CreateNoteComponent  {
   takeNote: boolean=true
   title:string =""
   description: string=""
   @Output() updateList= new EventEmitter <NoteObj>()
 
+  constructor(public noteService:NoteService){
+    
+  }
+
   handleCreateNote(action : string ){
     this.takeNote=!this.takeNote
     if (action =='close'){
       // we have to add api here
-        const noteObj = {
+        const noteObj:NoteObj = {
           "title" : this.title,
           "description" : this.description,
           // "isPined": false,
@@ -30,10 +35,12 @@ export class CreateNoteComponent {
           "color": "#ffffff",
           // "reminder": "",
           "id":"12346"
-        }
-      this.updateList.emit(noteObj)
-    }
+        };
+      this.noteService.addNoteCall(noteObj).subscribe(result=>{
+        this.updateList.emit(noteObj);
+      });
       
+    }
     
   }
 }
