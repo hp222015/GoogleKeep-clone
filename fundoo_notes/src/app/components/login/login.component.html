@@ -1,3 +1,6 @@
+<!-- there is shortcut to enclose some tag containing html code into div 
+div>p and then press tab for enclosing paragraph tag -->
+
 <form [formGroup]="LoginForm" (ngSubmit)="LoginUser()" >    
       <div class="outdiv">
             <label id="l1">
@@ -35,3 +38,9 @@
       </div>
 </form>
 
+<!-- Note:
+f?.['firstName']?.errors?.['required']: This is a chained property access using 
+the safe navigation operator ?.. It's checking if there is a firstName field in the form (f),
+ and if it has an errors object, and if that errors object contains a required error.
+  This is commonly used to check if a form field has a specific error,
+   such as a required field not being filled. -->

@@ -1,5 +1,8 @@
 ::ng-deep .app-register-cnt
 {}
+/* apply these styles to any element with the class app-register-cnt 
+inside any component that matches the app-register selector, 
+and do so even if it's encapsulated by the component's shadow DOM */
 
 *{
       margin: 0;
