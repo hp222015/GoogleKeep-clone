@@ -4,6 +4,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ARCHIVE_ICON, DELETE_FOREVER_ICON, EDIT_ICON, NOTE_ICON, REMINDER_ICON } from 'src/app/assets/svg-icons';
 import { DataService } from 'src/app/services/data-service/data.service';
+import { Router } from '@angular/router';
+import { NoteService } from 'src/app/services/note-service/note.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -17,7 +19,7 @@ import { DataService } from 'src/app/services/data-service/data.service';
 export class SideNavComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   drawerState : boolean = false
-  constructor( iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dataService: DataService) {
+  constructor( iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dataService: DataService, public noteService:NoteService, public router: Router) {
     iconRegistry.addSvgIconLiteral('note-icon', sanitizer.bypassSecurityTrustHtml(NOTE_ICON));
     iconRegistry.addSvgIconLiteral('reminder-icon', sanitizer.bypassSecurityTrustHtml(REMINDER_ICON));
     iconRegistry.addSvgIconLiteral('edit-icon', sanitizer.bypassSecurityTrustHtml(EDIT_ICON));
@@ -25,6 +27,10 @@ export class SideNavComponent implements OnInit, OnDestroy {
     iconRegistry.addSvgIconLiteral('delete-icon', sanitizer.bypassSecurityTrustHtml(DELETE_FOREVER_ICON));
 
      }
+    archiveClick()
+    {
+      this.router.navigate(['/dashboard/archive']);
+    }
   ngOnInit(): void {
     this.subscription=this.dataService.currentDrawerState.subscribe((result)=>this.drawerState=result)
   }

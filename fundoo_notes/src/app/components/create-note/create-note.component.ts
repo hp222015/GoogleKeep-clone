@@ -5,7 +5,8 @@ interface NoteObj {
   "title":string,
   "description":string,
   "color": string,
-  "id":string
+  "id":string,
+  "isArchived": boolean
 }
 @Component({
   selector: 'app-create-note',
@@ -31,7 +32,7 @@ export class CreateNoteComponent  {
           "title" : this.title,
           "description" : this.description,
           // "isPined": false,
-          // "isArchived": false,
+          "isArchived": false,
           "color": "#ffffff",
           // "reminder": "",
           "id":"12346"

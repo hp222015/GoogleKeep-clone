@@ -1,5 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,9 +13,7 @@ export class HttpService {
     Authorization: localStorage.getItem('token') || ""
     
   })
-  constructor(public http: HttpClient) {
-
-   }
+  constructor(public http: HttpClient) {}
   
   loginApi(data:object){
   return this.http.post( `${this.baseUrl}/user/login`,data)
@@ -29,6 +30,15 @@ export class HttpService {
 
   addNote(data: object){
     return this.http.post(`${this.baseUrl}/notes/addNotes`,data,{headers:this.authHeader})
+  }
+
+  archiveNote(requestBody: object): Observable<any> {
+    return this.http.post(`${this.baseUrl}/notes/archiveNotes`, requestBody, { headers: this.authHeader });
+  }
+
+  // Add method to get archived notes
+  getArchivedNotes(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/notes/getArchiveNotesList`, { headers: this.authHeader });
   }
   
  
