@@ -17,9 +17,8 @@ interface NoteObj {
   styleUrls: ['./notes-container.component.css']
 })
 export class NotesContainerComponent {
-  noteList:NoteObj[]=[
-    
-  ]
+  noteList:NoteObj[]=[]
+  filteredNoteList:NoteObj[]=[]
   constructor( iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public noteService: NoteService) {
     iconRegistry.addSvgIconLiteral('tick-icon', sanitizer.bypassSecurityTrustHtml(TICK_ICON));
     iconRegistry.addSvgIconLiteral('brush-icon', sanitizer.bypassSecurityTrustHtml(BRUSH_ICON));
@@ -36,8 +35,11 @@ export class NotesContainerComponent {
 
   }
   ngOnInit(): void {
-    this.noteService.getNoteListCall().subscribe((result: any)=>{this.noteList=result.data.data
+    this.noteService.getNoteListCall().subscribe((result: any)=>{
+      this.noteList=result.data.data      
+    this.filteredNoteList=this.noteList.filter(notes => !notes.isArchived && !notes.isDeleted)
     console.log(this.noteList);
+    console.log(this.filteredNoteList);
     },(error)=>{console.log(error)})
   }
 

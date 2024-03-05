@@ -19,6 +19,7 @@ interface NoteObj {
 })
 export class ArchiveContainerComponent {
   archivedNotes: NoteObj[]= [];
+  filteredArchivedNotes: NoteObj[]=[];
 
   constructor(public noteService: NoteService) { }
 
@@ -30,6 +31,7 @@ export class ArchiveContainerComponent {
     this.noteService.getArchivedNotesCall().subscribe(
       (result: any)=>{
         this.archivedNotes=result.data.data;
+        this.filteredArchivedNotes=this.archivedNotes.filter(notes => notes.isArchived && !notes.isDeleted);
        console.log(this.archivedNotes);},
       error => {
         console.error('Error fetching archived notes:', error);

@@ -31,6 +31,10 @@ export class SideNavComponent implements OnInit, OnDestroy {
     {
       this.router.navigate(['/dashboard/archive']);
     }
+    deleteClick()
+    {
+      this.router.navigate(['/dashboard/trash']);
+    }
   ngOnInit(): void {
     this.subscription=this.dataService.currentDrawerState.subscribe((result)=>this.drawerState=result)
   }

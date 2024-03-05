@@ -13,13 +13,13 @@
               <mat-icon svgIcon="edit-icon" aria-hidden="false" aria-label="edit icon">edit</mat-icon>
             <span>edit</span> <br><br>  
             </div>     
-            <div (click)="archiveClick">
+            <div (click)="archiveClick()">
               <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="archive icon">archive</mat-icon>        
-            <span routerLink="/dashboard/archive">archive</span><br><br>
+            <span>archive</span><br><br>
             </div>
-            <div>
+            <div (click)="deleteClick()">
               <mat-icon svgIcon="trash-icon" aria-hidden="false" aria-label="delete icon">delete</mat-icon>
-            <span routerLink="/dashboard/trash">trash</span> 
+            <span>trash</span> 
             </div>
       </mat-drawer>
       <mat-drawer-content id="main-cnt">
