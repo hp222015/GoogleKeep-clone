@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
-import { ARCHIVE_ICON, DELETE_FOREVER_ICON, EDIT_ICON, NOTE_ICON, REMINDER_ICON } from 'src/app/assets/svg-icons';
+import { ARCHIVE_ICON, DELETE_FOREVER_ICON, EDIT_ICON, NOTE_ICON, REMINDER_ICON, TRASH_ICON } from 'src/app/assets/svg-icons';
 import { DataService } from 'src/app/services/data-service/data.service';
 import { Router } from '@angular/router';
 import { NoteService } from 'src/app/services/note-service/note.service';
@@ -24,7 +24,7 @@ export class SideNavComponent implements OnInit, OnDestroy {
     iconRegistry.addSvgIconLiteral('reminder-icon', sanitizer.bypassSecurityTrustHtml(REMINDER_ICON));
     iconRegistry.addSvgIconLiteral('edit-icon', sanitizer.bypassSecurityTrustHtml(EDIT_ICON));
     iconRegistry.addSvgIconLiteral('archive-icon', sanitizer.bypassSecurityTrustHtml(ARCHIVE_ICON));
-    iconRegistry.addSvgIconLiteral('delete-icon', sanitizer.bypassSecurityTrustHtml(DELETE_FOREVER_ICON));
+    iconRegistry.addSvgIconLiteral('trash-icon', sanitizer.bypassSecurityTrustHtml(TRASH_ICON));
 
      }
     archiveClick()

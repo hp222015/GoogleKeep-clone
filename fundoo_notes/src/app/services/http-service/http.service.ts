@@ -32,13 +32,21 @@ export class HttpService {
     return this.http.post(`${this.baseUrl}/notes/addNotes`,data,{headers:this.authHeader})
   }
 
-  archiveNote(requestBody: object): Observable<any> {
+  archiveNote(requestBody: object) {
     return this.http.post(`${this.baseUrl}/notes/archiveNotes`, requestBody, { headers: this.authHeader });
   }
 
   // Add method to get archived notes
-  getArchivedNotes(): Observable<any> {
+  getArchivedNotes() {
     return this.http.get(`${this.baseUrl}/notes/getArchiveNotesList`, { headers: this.authHeader });
+  }
+
+  deleteNote(requestBody: object) {
+    return this.http.post(`${this.baseUrl}/notes/trashNotes`, requestBody, { headers: this.authHeader });
+  }
+
+  getDeletedNotes() {
+    return this.http.get(`${this.baseUrl}/notes/getTrashNotesList`, { headers: this.authHeader });
   }
   
  

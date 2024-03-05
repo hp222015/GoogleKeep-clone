@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/services/note-service/note.service';
 
 interface NoteObj {
-  title: string;
-  description: string;
-  color: string;
-  id: string;
-  isArchived: boolean;
+  title: string,
+  description: string,
+  color: string,
+  id: string,
+  isArchived: boolean,
+  isDeleted: boolean
 }
 
 

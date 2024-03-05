@@ -8,7 +8,8 @@ interface NoteObj {
   "description":string,
   "color": string,
   "id":string,
-  "isArchived": boolean
+  "isArchived": boolean,
+  "isDeleted" : boolean
 }
 @Component({
   selector: 'app-notes-container',
