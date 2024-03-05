@@ -33,4 +33,9 @@ export class NoteService {
   getDeletedNotesCall(){
     return this.httpService.getDeletedNotes();
   }
+
+
+  deleteForeverCall(data: object){
+    return this.httpService.deleteForever(data);
+  }
 }

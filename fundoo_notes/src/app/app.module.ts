@@ -25,6 +25,7 @@ import { TrashContainerComponent } from './components/trash-container/trash-cont
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { CreateNoteComponent } from './components/create-note/create-note.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CreateNoteComponent } from './components/create-note/create-note.compon
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent] 

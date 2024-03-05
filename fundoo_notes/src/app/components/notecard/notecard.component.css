@@ -11,3 +11,20 @@
       display:flex;
       gap:5%;
 }
+
+.color-palette-icon {
+      cursor: pointer; /* Ensure cursor changes to pointer on hover */
+    }
+  
+.colorMenu{
+      display: flex;
+      
+}
+.colorOptions
+    {
+      width: 20px; 
+      height: 20px;
+      border-radius: 50%; /* Make buttons circular */
+      margin: 2px; /* Add margin between buttons */
+      border: 1px solid black;
+    }
