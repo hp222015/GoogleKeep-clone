@@ -114,5 +114,12 @@ export class NotecardComponent {
 
   changeColor(color: string) {
     this.noteDetails.color = color;
+    const obj1={
+    "noteIdList":[this.noteDetails.id],
+    "color":this.noteDetails.color    
+    }
+    this.noteService.changeColorCall(obj1).subscribe(()=>{console.log("Note colored");},
+    error =>{console.log(error);}
+    );
   }
 }

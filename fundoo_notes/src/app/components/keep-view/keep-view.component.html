@@ -25,10 +25,20 @@
           id="icons"
         ></mat-icon>
         <mat-icon
-        *ngIf=""
+          *ngIf="!gridView"
+          (click) = handleView()
           aria-hidden="false"
           aria-label="Example list-view icon"
           fontIcon="list-view"
+          class="icon"
+        ></mat-icon>
+        
+        <mat-icon
+          *ngIf="gridView"
+          (click) = handleView()
+          aria-hidden="false"
+          aria-label="Example grid-view icon"
+          svgIcon="grid-view"
           class="icon"
         ></mat-icon>
         <mat-icon
@@ -43,6 +53,7 @@
           fontIcon="apps"
           class="appicon"
         ></mat-icon>
+        <mat-icon >person</mat-icon>
       </mat-toolbar-row>
     </mat-toolbar>
   </div>

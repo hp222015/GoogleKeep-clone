@@ -38,4 +38,8 @@ export class NoteService {
   deleteForeverCall(data: object){
     return this.httpService.deleteForever(data);
   }
+
+  changeColorCall(data: object){
+    return this.httpService.changeColor(data);
+  }
 }
