@@ -16,12 +16,15 @@ export class HttpService {
   constructor(public http: HttpClient) {}
   
   loginApi(data:object){
-  return this.http.post( `${this.baseUrl}/user/login`,data)
-
+  return this.http.post( `${this.baseUrl}/user/login`,data);
   }
 
   registerApi(data:object){
     return this.http.post(`${this.baseUrl}/user/userSignUp`,data);
+  }
+  
+  logoutApi(){
+    return this.http.post(`${this.baseUrl}/user/logout`,{},{headers:this.authHeader})
   }
 
   getNoteList(){

@@ -17,4 +17,7 @@ export class UserService {
   registerUser(data:object){
     return this.http.registerApi(data);
   }
+  logoutUser(){
+    return this.http.logoutApi();
+  }
 }

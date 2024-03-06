@@ -47,5 +47,4 @@ export class NotesContainerComponent {
     console.log($event);
     this.noteList=[$event, ...this.noteList]
   }
-
 }

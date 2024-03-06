@@ -4,6 +4,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { OTHER_MENU_ICON} from 'src/app/assets/svg-icons';
 import { DataService } from 'src/app/services/data-service/data.service';
+import { UserService } from 'src/app/services/user_services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-keep-view',
@@ -15,7 +17,7 @@ export class KeepViewComponent implements OnInit, OnDestroy{
  drawerState : boolean = false
  gridView : boolean =true
  ListView :boolean =false
- constructor( public dataService:DataService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer){
+ constructor( public dataService:DataService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public userService: UserService, public router: Router){
   iconRegistry.addSvgIconLiteral('grid-view', sanitizer.bypassSecurityTrustHtml(OTHER_MENU_ICON));
  } 
   ngOnInit(): void {
@@ -25,8 +27,20 @@ export class KeepViewComponent implements OnInit, OnDestroy{
     this.dataService.updateDrawerState(!this.drawerState);
   }
   handleView(){
-    this.gridView=!this.gridView;
-     
+    this.gridView=!this.gridView;     
+  }
+  logoutUser(){
+    this.userService.logoutUser().subscribe(()=>
+    {
+      console.log("User logged Out");
+      this.router.navigate(["/login"]);
+    }, 
+    (error) => 
+    {
+      console.log(error);
+    });
+    
+    
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
