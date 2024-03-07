@@ -1,4 +1,5 @@
-import { Component, Input,OnInit} from '@angular/core';
+
+import { Component, Input, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpService } from 'src/app/services/http-service/http.service';
@@ -57,7 +58,6 @@ export class NotecardComponent{
      },
      error => {console.error('Error:',error);}
     );
-
   }
 
   unarchiveNote(noteDetails : any): void {

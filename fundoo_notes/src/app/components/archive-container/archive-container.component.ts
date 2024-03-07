@@ -1,6 +1,7 @@
 // archive.component.ts
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { NoteService } from 'src/app/services/note-service/note.service';
+import { ViewService } from 'src/app/services/view-service/view.service';
 
 interface NoteObj {
   title: string,
@@ -21,7 +22,13 @@ export class ArchiveContainerComponent {
   archivedNotes: NoteObj[]= [];
   filteredArchivedNotes: NoteObj[]=[];
 
-  constructor(public noteService: NoteService) { }
+ viewMode: boolean=true;
+
+  constructor(public noteService: NoteService, public viewService: ViewService) 
+  { 
+    this.viewService.viewMode$.subscribe(mode => this.viewMode = mode);
+
+  }
 
   ngOnInit(): void {
     this.getArchivedNotes();

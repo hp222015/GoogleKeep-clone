@@ -3,7 +3,7 @@
       <span>{{ noteDetails.description }}</span>
       
       <div class="icons">
-            <div *ngIf="!noteDetails.isDeleted" style="display:flex;">
+            <div *ngIf="!noteDetails.isDeleted" style="display:flex; gap:10px;">
             <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon"></mat-icon> 
             <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="collabrator icon"></mat-icon> 
             <mat-icon class="color-palatte-icon" [matMenuTriggerFor]="colorMenu">
