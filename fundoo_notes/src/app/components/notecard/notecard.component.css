@@ -3,7 +3,7 @@
       flex-direction: column;
       justify-content: center;
       height:18vh;
-      border:2px solid black;
+      border: 1px solid gray;
       border-radius: 10px;
       padding: 10px;
       gap: 10px;
@@ -11,6 +11,9 @@
 .icons{
       display:flex;
       gap:5%;
+}
+.note.top-shift{
+      margin-top: 100px;
 }
 .note.grid-view{
       width: 16vw;

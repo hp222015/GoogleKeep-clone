@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NoteService } from 'src/app/services/note-service/note.service';
+import { ShiftService } from 'src/app/services/shift-service/shift.service';
 
 interface NoteObj {
   "title":string,
@@ -21,12 +22,12 @@ export class CreateNoteComponent  {
   description: string=""
   @Output() updateList= new EventEmitter <NoteObj>()
 
-  constructor(public noteService:NoteService){
+  constructor(public noteService:NoteService, public shiftService:ShiftService){
     
   }
-
   handleCreateNote(action : string ){
     this.takeNote=!this.takeNote
+    this.shiftService.check(this.takeNote);
     if (action =='close'){
       // we have to add api here
         const noteObj:NoteObj = {

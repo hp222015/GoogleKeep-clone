@@ -1,4 +1,4 @@
-<div class="note" [style.backgroundColor]="noteDetails.color"  [ngClass]="{'grid-view': viewMode, 'list-view': !viewMode}">
+<div class="note" [style.backgroundColor]="noteDetails.color"  [ngClass]="{'grid-view': viewMode, 'list-view': !viewMode, 'top-shift':!takeNote }">
       <span>{{ noteDetails.title }}</span>
       <span>{{ noteDetails.description }}</span>
       

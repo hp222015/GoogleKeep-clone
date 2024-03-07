@@ -12,7 +12,8 @@
       height:8vh;
       display:flex;
       box-sizing: border-box;
-      border: 2px solid black;
+      border-radius:5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       padding:0.5%;
       gap:5%;
       
@@ -30,8 +31,18 @@
       flex-direction: column;
       gap:15%;
       padding:0.5%;
-      border: 2px solid black;
-      
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border-radius:5px;
+}
+.create-note-title-cnt{
+      width:100%;
+      border:none;
+      background: transparent;
+}
+.desc{
+      width: 100%;
+      border: none;
+      background: transparent;
 }
 .icon{
       display:flex;

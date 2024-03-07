@@ -12,11 +12,11 @@
 
       <ng-template #addNote>
             <div class="inner-body">
-                  <div class="create-note-title-cnt">
-                        <input [(ngModel)]="title"  type="text" placeholder="title">
+                  <div >
+                        <input class="create-note-title-cnt" [(ngModel)]="title"  type="text" placeholder="title">
                   </div>
-                  <div class="desc">
-                        <input [(ngModel)]="description" type="text" placeholder="description">
+                  <div >
+                        <input class="desc" [(ngModel)]="description" type="text" placeholder="description">
                   </div>
                   <div class="icon">
                   <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon"></mat-icon> 
