@@ -34,7 +34,7 @@
                   
                   <div class="name">
                      <mat-form-field appearance="outline">
-                        <input matInput class="f1" type= text placeholder="   Password*"  formControlName="password">
+                        <input matInput class="f1" type= password placeholder="   Password*"  formControlName="password">
                         <div style="color:red;" *ngIf="submitted && f?.['password']?.errors?.['required']">Password is required</div>   
                         <div style="color:red;" *ngIf="submitted && f?.['password']?.errors?.['minlength']">Password should have atleast 6 characters</div>  
                      </mat-form-field>

@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import {  Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ARCHIVE_ICON, BRUSH_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, IMG_ICON, MORE_ICON, REDO_ICON, REMINDER_ICON, TICK_ICON, UNDO_ICON } from 'src/app/assets/svg-icons';
 import { NoteService } from 'src/app/services/note-service/note.service';
+import { ViewService } from 'src/app/services/view-service/view.service';
+
 interface NoteObj {
   "title":string,
   "description":string,
@@ -19,7 +21,9 @@ interface NoteObj {
 export class NotesContainerComponent {
   noteList:NoteObj[]=[]
   filteredNoteList:NoteObj[]=[]
-  constructor( iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public noteService: NoteService) {
+  viewMode: boolean=true;
+
+  constructor( iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public noteService: NoteService, private viewService:ViewService) {
     iconRegistry.addSvgIconLiteral('tick-icon', sanitizer.bypassSecurityTrustHtml(TICK_ICON));
     iconRegistry.addSvgIconLiteral('brush-icon', sanitizer.bypassSecurityTrustHtml(BRUSH_ICON));
     iconRegistry.addSvgIconLiteral('img-icon', sanitizer.bypassSecurityTrustHtml(IMG_ICON));
@@ -31,7 +35,7 @@ export class NotesContainerComponent {
     iconRegistry.addSvgIconLiteral('more-icon', sanitizer.bypassSecurityTrustHtml(MORE_ICON));
     iconRegistry.addSvgIconLiteral('undo-icon', sanitizer.bypassSecurityTrustHtml(UNDO_ICON));
     iconRegistry.addSvgIconLiteral('redo-icon', sanitizer.bypassSecurityTrustHtml(REDO_ICON));
-
+    this.viewService.viewMode$.subscribe(mode => this.viewMode = mode);
 
   }
   ngOnInit(): void {
@@ -46,5 +50,5 @@ export class NotesContainerComponent {
   updateNoteList($event:NoteObj ){
     console.log($event);
     this.noteList=[$event, ...this.noteList]
-  }
+  }  
 }

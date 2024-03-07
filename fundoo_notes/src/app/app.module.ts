@@ -26,6 +26,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { CreateNoteComponent } from './components/create-note/create-note.component';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip'
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import {MatMenuModule} from '@angular/material/menu';
     BrowserAnimationsModule,
     MatInputModule,
     MatCheckboxModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent] 

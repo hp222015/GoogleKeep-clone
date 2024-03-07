@@ -4,18 +4,17 @@
       margin-bottom: 3%;
 }
 .note-card{
-      width:100%;
+      width: 20%;
       height:20%;
       margin-left:10%;  
       display:flex;
-      flex-wrap: wrap;
       gap: 10px;
 }
 
-.grid-view .notes-container {
+.note-card.grid-view{
       flex-direction: row;
-    }
+}
     
-.list-view .notes-container {
+.note-card.list-view{
       flex-direction: column;
 }

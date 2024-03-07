@@ -1,7 +1,8 @@
 <div class="outer"> 
-<div *ngIf="takeNote; else addNote" (click)="handleCreateNote('open')">
+<div *ngIf="takeNote; else addNote"  (click)="handleCreateNote('open');">
+
       <div class="inner-head">
-            <input id="note-head" type="text" placeholder="Take a note">
+            <input id="note-head" type="text" placeholder="Title">
             <mat-icon svgIcon="tick-icon" aria-hidden="false" aria-label="tick icon"></mat-icon> 
             <mat-icon svgIcon="brush-icon" aria-hidden="false" aria-label="brush icon"></mat-icon>             
             <mat-icon svgIcon="img-icon" aria-hidden="false" aria-label="img icon"></mat-icon> 

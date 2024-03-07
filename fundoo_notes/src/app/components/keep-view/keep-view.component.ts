@@ -6,6 +6,7 @@ import { OTHER_MENU_ICON} from 'src/app/assets/svg-icons';
 import { DataService } from 'src/app/services/data-service/data.service';
 import { UserService } from 'src/app/services/user_services/user.service';
 import { Router } from '@angular/router';
+import { ViewService } from 'src/app/services/view-service/view.service';
 
 @Component({
   selector: 'app-keep-view',
@@ -17,8 +18,8 @@ export class KeepViewComponent implements OnInit, OnDestroy{
  drawerState : boolean = false
  gridView : boolean =true
  ListView :boolean =false
- constructor( public dataService:DataService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public userService: UserService, public router: Router){
-  iconRegistry.addSvgIconLiteral('grid-view', sanitizer.bypassSecurityTrustHtml(OTHER_MENU_ICON));
+ constructor( public dataService:DataService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public userService: UserService, public router: Router, private viewService: ViewService){
+  iconRegistry.addSvgIconLiteral('grid-view', sanitizer.bypassSecurityTrustHtml(OTHER_MENU_ICON));  
  } 
   ngOnInit(): void {
     this.subscription= this.dataService.currentDrawerState.subscribe(result=>this.drawerState=result)
@@ -27,7 +28,8 @@ export class KeepViewComponent implements OnInit, OnDestroy{
     this.dataService.updateDrawerState(!this.drawerState);
   }
   handleView(){
-    this.gridView=!this.gridView;     
+    this.gridView=!this.gridView;
+    this.viewService.toggleViewMode(this.gridView);   
   }
   logoutUser(){
     this.userService.logoutUser().subscribe(()=>

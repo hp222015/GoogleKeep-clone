@@ -8,7 +8,6 @@ import { UserService } from 'src/app/services/user_services/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   host: {
-
     class:"app-login-cnt"
   }
 })

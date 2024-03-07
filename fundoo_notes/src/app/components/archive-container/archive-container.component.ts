@@ -1,5 +1,5 @@
 // archive.component.ts
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/services/note-service/note.service';
 
 interface NoteObj {

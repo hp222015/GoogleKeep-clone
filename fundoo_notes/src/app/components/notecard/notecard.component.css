@@ -3,15 +3,20 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width:16vw;
       height:18vh;
       border:2px solid black;
+      border-radius: 20px;
 }
 .icons{
       display:flex;
       gap:5%;
 }
-
+.note.grid-view{
+      width: 20vw;
+}
+.note.list-view{
+      width: 80vw;
+}
 .color-palette-icon {
       cursor: pointer; /* Ensure cursor changes to pointer on hover */
     }
