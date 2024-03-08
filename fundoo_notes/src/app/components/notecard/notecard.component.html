@@ -30,7 +30,7 @@
 
             <mat-icon *ngIf="noteDetails.isDeleted" (click)="restoreNote(noteDetails)" svgIcon="restore-icon" aria-hidden="false" aria-label="restore icon"></mat-icon>
             <mat-icon *ngIf="noteDetails.isDeleted" (click)="deletePermanently(noteDetails)" svgIcon="delete-forever-icon" aria-hidden="false" aria-label="restore icon"></mat-icon>
-            <mat-icon *ngIf="!noteDetails.isDeleted" (click)="deleteNote(noteDetails)" svgIcon="trash-icon" aria-hidden="false" aria-label="trash icon"></mat-icon>
+            <mat-icon *ngIf="!noteDetails.isDeleted" (click)="deleteNote(noteDetails)" style="mix-blend-mode: multiply;" svgIcon="trash-icon" aria-hidden="false" aria-label="trash icon"></mat-icon>
             
       </div>
 </div>

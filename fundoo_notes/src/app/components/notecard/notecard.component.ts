@@ -61,6 +61,7 @@ export class NotecardComponent{
      },
      error => {console.error('Error:',error);}
     );
+    window.location.reload();
   }
 
   unarchiveNote(noteDetails : any): void {
@@ -78,6 +79,7 @@ export class NotecardComponent{
      },
      error => {console.error('Error:',error);}
     );
+    window.location.reload();
   }
 
   deleteNote(noteDetails : any): void{
@@ -91,6 +93,7 @@ export class NotecardComponent{
       ()=>{console.log("Note Deleted successfully")},
       error =>{console.log(error);}
     );
+    window.location.reload();
   }
 
   restoreNote(noteDetails : any): void{
@@ -104,6 +107,7 @@ export class NotecardComponent{
       ()=>{console.log("Note restored successfully")},
       error =>{console.log(error);}
     );
+    window.location.reload();
   }
 
   deletePermanently(noteDetails : any): void{
@@ -114,6 +118,7 @@ export class NotecardComponent{
       ()=>{console.log("Note Deleted permanently")},
       error =>{console.log(error);}
     );
+    window.location.reload();
   }
 
   changeColor(color: string) {

@@ -19,3 +19,13 @@ div{
       gap:10%;
       padding:5%;
 }
+
+
+
+@media only screen and (max-width:500px){ 
+
+      #snav{
+            width: 30vw;
+            height: 100vh;
+      }
+}

@@ -1,7 +1,7 @@
 .note{
       display:flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       height:18vh;
       border: 1px solid gray;
       border-radius: 10px;
@@ -37,3 +37,16 @@
       margin: 2px; /* Add margin between buttons */
       border: 1px solid black;
     }
+
+@media only screen and (max-width: 500px){
+      
+      .note{
+            width: 40vw !important;
+            height: 9vh !important;
+            margin-left: 25vw !important;
+
+      }
+      .note.top-shift{
+           margin-top: 2px;
+      }
+}

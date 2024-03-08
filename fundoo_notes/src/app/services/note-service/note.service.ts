@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../http-service/http.service';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 export class NoteService {
 
   constructor( public httpService: HttpService) {}
+     
   getNoteListCall()
   {
     return this.httpService.getNoteList()

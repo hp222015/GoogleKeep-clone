@@ -1,13 +1,13 @@
 .notehead{
       width:90vw;
       height:20vh;
-      margin-bottom: 3%;
 }
 .note-card{
-      width: 60%;
-      height:100%;
+      width: 80%;
+      height:60%;
       margin-left:10%;  
       display:flex;
+      flex-wrap: wrap;
       gap: 10px;
 }
 
@@ -17,5 +17,6 @@
     
 .note-card.list-view{
       flex-direction: column;
-      margin-left: 400px;
+      margin-left: 400px;      
+      flex-wrap: nowrap;
 }

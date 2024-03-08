@@ -40,11 +40,12 @@ export class NotesContainerComponent {
   }
   ngOnInit(): void {
     this.noteService.getNoteListCall().subscribe((result: any)=>{
-      this.noteList=result.data.data      
+    this.noteList=result.data.data      
     this.filteredNoteList=this.noteList.filter(notes => !notes.isArchived && !notes.isDeleted)
     console.log(this.noteList);
     console.log(this.filteredNoteList);
     },(error)=>{console.log(error)})
+
   }
 
   updateNoteList($event:NoteObj ){

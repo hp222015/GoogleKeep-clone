@@ -2,8 +2,9 @@
       width:100vw;
       height:60vh;
       display:flex;
-      gap:0.5%;
+      gap:2%;
       padding: 2%;
+      margin-left: 5%;
 }
 .dNotes.grid-view{
       flex-direction: row;

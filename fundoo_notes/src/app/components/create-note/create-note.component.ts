@@ -25,7 +25,9 @@ export class CreateNoteComponent  {
   constructor(public noteService:NoteService, public shiftService:ShiftService){
     
   }
+ 
   handleCreateNote(action : string ){
+   
     this.takeNote=!this.takeNote
     this.shiftService.check(this.takeNote);
     if (action =='close'){
@@ -43,7 +45,7 @@ export class CreateNoteComponent  {
       this.noteService.addNoteCall(noteObj).subscribe(result=>{
         this.updateList.emit(noteObj);
       });
-      
+      window.location.reload();
     }
     
   }

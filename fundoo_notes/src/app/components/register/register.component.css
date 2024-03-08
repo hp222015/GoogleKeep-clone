@@ -81,7 +81,6 @@ color: #EA4335; /* Color for 'e' */
   width: 88%;
   border-radius:5px ;
   border:1px solid black;
-  /* width: 54%; */
 }
 .check{
       display:flex;
@@ -110,21 +109,26 @@ color: #EA4335; /* Color for 'e' */
 #llast{
       margin-left:2vw;
 }
-@media only screen and (max-width:1000px){   
+@media only screen and (max-width:500px){ 
+      
       .page{
-            width:80vw;
-            height:70vh;
+            width:120vw;
+            height:100vh;
+            border-radius: 3px;
       } 
-      #l2{
-            font-size:0.7em;
+      .name{
+            width: 90vw;
+            display:flex;
+            gap: 5px;
       }
       .f1{
-            width:30vw;
-            height:5vh;
+            width: 40vw;
+      }
+      #l2{
+            font-size:1.2em;
       }
       #u1{
-            width:65vw;
-            height:5vh
+            width:40vw;
       }
       .img{
             display:none;

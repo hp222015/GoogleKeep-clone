@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable} from 'rxjs';
 
 
 @Injectable({
@@ -14,6 +14,7 @@ export class HttpService {
     
   })
   constructor(public http: HttpClient) {}
+
   
   loginApi(data:object){
   return this.http.post( `${this.baseUrl}/user/login`,data);
