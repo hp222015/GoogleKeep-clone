@@ -1,7 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NoteService } from 'src/app/services/note-service/note.service';
 import { ShiftService } from 'src/app/services/shift-service/shift.service';
+import { HttpService } from 'src/app/services/http-service/http.service';
 
+// we need to create interface bcoz in typescript we can't directly access the 
+// object details using '.' operator like NoteObj.title we need to define the 
+// interface for that;
 interface NoteObj {
   "title":string,
   "description":string,
@@ -9,6 +13,10 @@ interface NoteObj {
   "id":string,
   "isArchived": boolean,
   "isDeleted": boolean
+}
+interface objData{
+  "action":string,
+  "data": NoteObj
 }
 @Component({
   selector: 'app-create-note',
@@ -20,10 +28,15 @@ export class CreateNoteComponent  {
   takeNote: boolean=true
   title:string =""
   description: string=""
-  @Output() updateList= new EventEmitter <NoteObj>()
+  color: string=""
+  @Output() updateList= new EventEmitter <objData>();
 
-  constructor(public noteService:NoteService, public shiftService:ShiftService){
+  constructor(public noteService:NoteService, public shiftService:ShiftService, public httpService:HttpService){
     
+  }
+
+  changeColor(color: string) {
+    this.color=color;
   }
  
   handleCreateNote(action : string ){
@@ -31,21 +44,22 @@ export class CreateNoteComponent  {
     this.takeNote=!this.takeNote
     this.shiftService.check(this.takeNote);
     if (action =='close'){
-      // we have to add api here
         const noteObj:NoteObj = {
           "title" : this.title,
           "description" : this.description,
-          // "isPined": false,
+          "color": this.color,
+          "id":"12346",
           "isArchived": false,
-          "isDeleted": false,
-          "color": "#ffffff",
-          // "reminder": "",
-          "id":"12346"
+          "isDeleted": false          
         };
+      const emitObj: objData ={
+        action: 'addNote',
+        data: noteObj
+      };
       this.noteService.addNoteCall(noteObj).subscribe(result=>{
-        this.updateList.emit(noteObj);
+        this.updateList.emit(emitObj);
+        this.httpService.getNoteList();
       });
-      window.location.reload();
     }
     
   }

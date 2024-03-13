@@ -1,9 +1,10 @@
-import {  Component } from '@angular/core';
+import {  Component} from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ARCHIVE_ICON, BRUSH_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, IMG_ICON, MORE_ICON, REDO_ICON, REMINDER_ICON, TICK_ICON, UNDO_ICON } from 'src/app/assets/svg-icons';
 import { NoteService } from 'src/app/services/note-service/note.service';
 import { ViewService } from 'src/app/services/view-service/view.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 interface NoteObj {
   "title":string,
@@ -13,6 +14,12 @@ interface NoteObj {
   "isArchived": boolean,
   "isDeleted" : boolean
 }
+
+interface objData{
+  "action":string,
+  "data": NoteObj
+}
+
 @Component({
   selector: 'app-notes-container',
   templateUrl: './notes-container.component.html',
@@ -20,10 +27,10 @@ interface NoteObj {
 })
 export class NotesContainerComponent {
   noteList:NoteObj[]=[]
-  filteredNoteList:NoteObj[]=[]
   viewMode: boolean=true;
+  
 
-  constructor( iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public noteService: NoteService, private viewService:ViewService) {
+  constructor( iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public noteService: NoteService, private viewService:ViewService,private changeDetectorRef: ChangeDetectorRef) {
     iconRegistry.addSvgIconLiteral('tick-icon', sanitizer.bypassSecurityTrustHtml(TICK_ICON));
     iconRegistry.addSvgIconLiteral('brush-icon', sanitizer.bypassSecurityTrustHtml(BRUSH_ICON));
     iconRegistry.addSvgIconLiteral('img-icon', sanitizer.bypassSecurityTrustHtml(IMG_ICON));
@@ -38,18 +45,38 @@ export class NotesContainerComponent {
     this.viewService.viewMode$.subscribe(mode => this.viewMode = mode);
 
   }
-  ngOnInit(): void {
+  ngOnInit(): void {      
+    this.getAllNotes();
+  }
+
+  getAllNotes(){
     this.noteService.getNoteListCall().subscribe((result: any)=>{
-    this.noteList=result.data.data      
-    this.filteredNoteList=this.noteList.filter(notes => !notes.isArchived && !notes.isDeleted)
-    console.log(this.noteList);
-    console.log(this.filteredNoteList);
-    },(error)=>{console.log(error)})
+      this.noteList=result.data.data;     
+      this.noteList=this.noteList.filter(notes => !notes.isArchived && !notes.isDeleted);
+      
+      },(error)=>{console.log(error)});   
 
   }
 
-  updateNoteList($event:NoteObj ){
-    console.log($event);
-    this.noteList=[$event, ...this.noteList]
-  }  
+  updateNoteList($event:objData ){
+    // this.noteList=[$event, ...this.noteList];
+    // this.noteList=this.noteList.filter((noteObj)=>{
+
+    //   return noteObj.id!=$event.id;
+    // });
+    // map logic for color change make obj= {action: string, data: NoteObj} and emit it 
+    console.log($event.data);
+    if($event.action==='addNote')
+    {
+      this.noteList=[$event.data, ...this.noteList];      
+    }
+    if($event.action==='archiveNote')
+    {
+          this.noteList=this.noteList.filter((noteObj)=>{
+
+          return noteObj.id!=$event.data.id;
+        });
+    }
+  }
+
 }

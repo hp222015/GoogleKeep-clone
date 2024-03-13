@@ -18,6 +18,7 @@ export class RegisterComponent {
 
   RegisterForm !: FormGroup
   submitted: boolean = false
+  ispswd: boolean=true
 
   // constructor and ngOnInit both are used for initialization but the difference is
   // The main difference between the constructor and ngOnInit is the timing of their execution:
@@ -45,6 +46,10 @@ export class RegisterComponent {
 
   get f(){
     return this.RegisterForm.controls
+  }
+
+  show(){
+    this.ispswd=!this.ispswd;
   }
 
   registerUser(){

@@ -12,6 +12,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       width: 80vw;
+      justify-content: center;
 }
 .aNotes.list-view{
       flex-direction: column;

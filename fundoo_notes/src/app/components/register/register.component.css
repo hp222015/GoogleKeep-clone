@@ -11,25 +11,44 @@ and do so even if it's encapsulated by the component's shadow DOM */
 }
 body{
       width: 100vw;
-      height: 200vh;
+      height: 100vh;
+}
+.final{
+      display: flex;
+      justify-content: center;
+      align-items: center;
 }
 .page{
-      width: 40vw;
+      width: 60vw;
       height: 90vh;
       display:flex;
-      border: 1px solid black;      
-      padding: 3%;
-      margin:auto;
+      padding: 2%;
+      border: 1px solid black; 
       border-radius: 10px;
+      margin-top: 5vh;
 }
 
 .outer{
-      width:50%;
-      height:90vh;
+      width:70%;
+      height:100%;
       display:flex;
       flex-direction: column;
       align-items: flex-start;
       gap:5%;
+}
+
+.img{
+      width:30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 10vw;
+}
+
+#img1{
+      width: 15vw;
+      height:30vh;    
 }
 
 #l1{
@@ -78,63 +97,68 @@ color: #EA4335; /* Color for 'e' */
 }
 #u1{
   height: 8vh;
-  width: 88%;
+  width: 30.3vw;
   border-radius:5px ;
-  border:1px solid black;
+  border:1px solid gray;
 }
+/* div[style="color:red;"] {
+  margin-top: -100px; /* Adjust the value as needed */
+ */
 .check{
       display:flex;
       gap:2%;
 }
 .buttons{
+      width:100%;
       display:flex;
-      gap: 55%;
+      justify-content: space-between;
 }
-#b1{
-      background-color:blue;
-      color:white;
-      width:15vw;
-      height:5vh;
+::ng-deep .mat-raised-button {
+      width: 200px; /* Adjust the width as needed */
+  }
 
-}
-.page{
-      display:flex;
-}
-#img1{
-      margin-top: 25vh;
-      width: 10vw;
-      height:20vh;  
-      margin-left:35px;    
-}
 #llast{
       margin-left:2vw;
 }
 @media only screen and (max-width:500px){ 
       
       .page{
-            width:120vw;
-            height:100vh;
+            width:100vw;
+            height:120vh;
             border-radius: 3px;
+            margin:0;
       } 
       .name{
-            width: 90vw;
             display:flex;
-            gap: 5px;
+            flex-direction: column;
+            gap: 4vh;
       }
-      .f1{
+    
+      .outer{
+            width:70%;
+            height:50%;
+      }
+      .f1{            
             width: 40vw;
       }
       #l2{
             font-size:1.2em;
       }
       #u1{
-            width:40vw;
+            width:55vw;
+            height: 7vh;
+            font-size: 1.em;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 5%; 
+            margin-top: 2%;          
+      }
+      .uName{
+      margin-bottom: 5%;
       }
       .img{
             display:none;
       }
       #b1{
-            width:60vw;
+            width:20vw;
       }
 }
-

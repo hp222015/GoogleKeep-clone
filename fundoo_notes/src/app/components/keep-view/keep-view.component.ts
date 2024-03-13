@@ -44,7 +44,7 @@ export class KeepViewComponent implements OnInit, OnDestroy{
     
     
   }
-  f1(){
+  refresh(){
     window.location.reload();
   }
   ngOnDestroy(): void {

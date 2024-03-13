@@ -2,14 +2,13 @@
   <div class="header">
     <mat-toolbar>
       <mat-toolbar-row>
-        <button (click)="handleDrawerState()">
           <mat-icon
+          (click)="handleDrawerState()"
             aria-hidden="false"
             aria-label="Example home icon"
             fontIcon="menu"
-            class="menuicon"
+            class="menu"
           ></mat-icon>
-        </button>
         <img
           src="https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png"
           alt="logo"
@@ -18,12 +17,14 @@
         />
         <h1 id="heading">Keep</h1>
         <input type="search" matInput placeholder="Search" id="search" />
+        <div style="display:flex;  gap:2vw;">
         <mat-icon
           aria-hidden="false"
           aria-label="Example refresh icon"
           fontIcon="refresh"
           id="icon"
-          (click) = "f1()"
+          class="icon"
+          (click) = "refresh()"
         ></mat-icon>
         
         <mat-icon
@@ -48,17 +49,17 @@
           aria-hidden="false"
           aria-label="Example settings icon"
           fontIcon="settings"
-          class="icon"
           id="settings"
         ></mat-icon>
+        </div>
         <mat-icon
           aria-hidden="false"
           aria-label="Example app icon"
           fontIcon="apps"
-          class="appicon"
+          class="app"
         ></mat-icon>
         
-        <button class="icon" mat-button [matMenuTriggerFor]="menu"><mat-icon>person</mat-icon></button>
+        <button id="logout"  mat-button [matMenuTriggerFor]="menu"><mat-icon>person</mat-icon></button>
               <mat-menu #menu="matMenu">
                 <button (click) =logoutUser() mat-menu-item>Logout</button>
               </mat-menu>

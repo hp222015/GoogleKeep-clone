@@ -5,7 +5,13 @@
       height:2000px;
 }
 #snav{
- width:8vw;
+ width:10vw;
+ padding-left: 10px;
+ cursor:pointer;
+}
+#mi1{
+      border:none;
+      outline:none;
 }
 
 #main-cnt{
@@ -19,6 +25,9 @@ div{
       gap:10%;
       padding:5%;
 }
+.highlighted {
+      background-color: #feefc3;
+    }
 
 
 

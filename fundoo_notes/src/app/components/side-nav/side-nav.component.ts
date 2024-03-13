@@ -18,7 +18,8 @@ import { NoteService } from 'src/app/services/note-service/note.service';
 
 export class SideNavComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
-  drawerState : boolean = false
+  drawerState : boolean = false;
+  highlightedDiv: HTMLElement | null = null;
   constructor( iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dataService: DataService, public noteService:NoteService, public router: Router) {
     iconRegistry.addSvgIconLiteral('note-icon', sanitizer.bypassSecurityTrustHtml(NOTE_ICON));
     iconRegistry.addSvgIconLiteral('reminder-icon', sanitizer.bypassSecurityTrustHtml(REMINDER_ICON));
@@ -31,10 +32,24 @@ export class SideNavComponent implements OnInit, OnDestroy {
     {
       this.router.navigate(['/dashboard/archive']);
     }
+    highlight(div: HTMLElement) {
+      if (this.highlightedDiv) {
+        this.highlightedDiv.classList.remove('highlighted');
+      }
+      div.classList.add('highlighted');
+      this.highlightedDiv = div;
+    }
+  
+    isHighlighted(div: HTMLElement) {
+      return div === this.highlightedDiv;
+    }
     deleteClick()
     {
       this.router.navigate(['/dashboard/trash']);
-    }
+    } 
+
+
+  
   ngOnInit(): void {
     this.subscription=this.dataService.currentDrawerState.subscribe((result)=>this.drawerState=result)
   }

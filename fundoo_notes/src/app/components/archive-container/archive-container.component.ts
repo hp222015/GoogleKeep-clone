@@ -20,7 +20,6 @@ interface NoteObj {
 })
 export class ArchiveContainerComponent {
   archivedNotes: NoteObj[]= [];
-  filteredArchivedNotes: NoteObj[]=[];
 
  viewMode: boolean=true;
 
@@ -38,11 +37,19 @@ export class ArchiveContainerComponent {
     this.noteService.getArchivedNotesCall().subscribe(
       (result: any)=>{
         this.archivedNotes=result.data.data;
-        this.filteredArchivedNotes=this.archivedNotes.filter(notes => notes.isArchived && !notes.isDeleted);
-       console.log(this.archivedNotes);},
+        this.archivedNotes=this.archivedNotes.filter(notes => notes.isArchived && !notes.isDeleted);
+      },
       error => {
         console.error('Error fetching archived notes:', error);
       }
     );
   }
+  updateArchiveList($event:NoteObj ){
+    this.archivedNotes=this.archivedNotes.filter((noteObj)=>{
+
+      return noteObj.id!=$event.id;
+    });
+    console.log($event);
+  }
+
 }

@@ -13,7 +13,7 @@
       gap:5%;
 }
 .note.top-shift{
-      margin-top: 100px;
+      margin-top: 50px;
 }
 .note.grid-view{
       width: 16vw;
@@ -41,10 +41,8 @@
 @media only screen and (max-width: 500px){
       
       .note{
-            width: 40vw !important;
+            width: 50vw !important;
             height: 9vh !important;
-            margin-left: 25vw !important;
-
       }
       .note.top-shift{
            margin-top: 2px;

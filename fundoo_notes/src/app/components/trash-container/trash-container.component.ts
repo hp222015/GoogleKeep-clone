@@ -33,11 +33,20 @@ export class TrashContainerComponent {
     this.noteService.getDeletedNotesCall().subscribe(
       (result: any)=>{
         this.deletedNotes=result.data.data;
-       console.log(this.deletedNotes);},
+       console.log(this.deletedNotes);
+       this.noteService.getNoteListCall();},
       error => {
         console.error('Error fetching deleted notes:', error);
       }
     );
+  }
+
+  updateTrashList($event:NoteObj ){
+    this.deletedNotes=this.deletedNotes.filter((noteObj)=>{
+
+      return noteObj.id!=$event.id;
+    });
+    console.log($event);
   }
 }
   

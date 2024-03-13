@@ -1,23 +1,28 @@
 <mat-drawer-container class="example-container" [hasBackdrop]="false">
       <mat-drawer id="snav" #drawer [mode]="'over'" [opened]="drawerState">
-            <div>
-              <mat-icon svgIcon="note-icon" aria-hidden="false" aria-label="note icon">notes</mat-icon>
+        <div #noteElement (click)="highlight(noteElement)" [class.highlighted]="isHighlighted(noteElement)">
+
+              <mat-icon svgIcon="note-icon" aria-hidden="false" aria-label="note icon" id="mi1">notes</mat-icon>
             <span routerLink="/dashboard/notes">notes</span><br><br> 
             </div> 
-            <div>
+            <div #remElement (click)=" highlight(remElement)" [class.highlighted]="isHighlighted(remElement)">
+
               <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon">reminder</mat-icon>
             <span>reminder</span> <br><br>  
             </div>
              
-            <div>
+            <div #editElement (click)=" highlight(editElement)" [class.highlighted]="isHighlighted(editElement)">
+
               <mat-icon svgIcon="edit-icon" aria-hidden="false" aria-label="edit icon">edit</mat-icon>
             <span>edit</span> <br><br>  
             </div>     
-            <div (click)="archiveClick()">
+            <div #arcvElement (click)="archiveClick(); highlight(arcvElement)" [class.highlighted]="isHighlighted(arcvElement)">
               <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="archive icon">archive</mat-icon>        
-            <span>archive</span><br><br>
+              <span>archive</span><br><br>
             </div>
-            <div (click)="deleteClick()">
+        
+            <div #delElement (click)="deleteClick(); highlight(delElement)" [class.highlighted]="isHighlighted(delElement)">
+
               <mat-icon svgIcon="trash-icon" aria-hidden="false" aria-label="delete icon">delete</mat-icon>
             <span>trash</span> 
             </div>

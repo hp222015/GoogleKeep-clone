@@ -1,4 +1,4 @@
-.menuicon {
+.menu {
       border-radius: 0px;
   }
   .logo {
@@ -8,7 +8,7 @@
       margin-left: 10px;
   }
   #search {
-      margin-left: 110px;
+      margin: 0 10vw;
       width: 55%;
       height: 65%;
       border:0.1px solid gray;
@@ -24,8 +24,10 @@
   .icon {
       margin-left: 20px;
   }
-  
-  .appicon {
+  #logout{
+    margin-left:20px;
+  }
+  .app {
       margin-left: 70px;
   }
   .sidenav {
@@ -53,7 +55,6 @@
     .mat-toolbar-row{
         width: 100vw;
         display:flex;
-        justify-content: space-between;
     }
     #search {
         display:none;
@@ -63,15 +64,20 @@
     }
     
     .icon {
-        margin-left: 5px;
+        display:none;
     }
     
-    .appicon {
-        margin-left: 0px;
+    .app {
+        display:none;
+    }
+
+    #logout{
+        margin-left: 60vw;
     }
 
     #settings{
         width:8%;
+        display:none;
     }
     .container-content {
         margin-left: 2%;
@@ -80,4 +86,5 @@
         width: 100%;
         height: 100%;
     }
+    
  }

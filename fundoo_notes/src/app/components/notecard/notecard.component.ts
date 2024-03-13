@@ -1,5 +1,4 @@
-
-import { Component, Input} from '@angular/core';
+import { Component, Input,Output,EventEmitter} from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpService } from 'src/app/services/http-service/http.service';
@@ -17,6 +16,11 @@ interface NoteObj {
     "isDeleted" : boolean
   }
 
+  interface objData{
+    "action":string,
+    "data": NoteObj
+  }
+
 @Component({
   selector: 'app-notecard',
   templateUrl: './notecard.component.html',
@@ -24,8 +28,13 @@ interface NoteObj {
 })
 export class NotecardComponent{
   @Input() noteDetails!: NoteObj;
-  @Input() viewMode: boolean=true;
+  @Input() viewMode: boolean=true; 
+  @Output() updateNoteList = new EventEmitter<objData>();
+  @Output() updateArchiveList = new EventEmitter<NoteObj>();
+  @Output() updateTrashList = new EventEmitter<NoteObj>();
   takeNote: boolean=true;
+
+  
 
   constructor(
     iconRegistry: MatIconRegistry,
@@ -45,28 +54,32 @@ export class NotecardComponent{
     iconRegistry.addSvgIconLiteral('delete-forever-icon', sanitizer.bypassSecurityTrustHtml(DELETE_FOREVER_ICON));
     this.shiftService.shiftReqd$.subscribe((result)=>this.takeNote=result);
   }
-
+  
+  
   archiveNote(noteDetails : any): void {
    
-    // Update the isArchived property of the note
     this.noteDetails.isArchived = true;
     console.log(noteDetails);
      const obj1={
       "noteIdList":[this.noteDetails.id],
       "isArchived":true
      }
+     const emitObj={
+      action:"archiveNote",
+      data: noteDetails
+     }
      this.noteService.archiveNoteCall(obj1).subscribe(
       ()=>{
       console.log("Note Archived successfully");
+      this.updateNoteList.emit(emitObj);
      },
      error => {console.error('Error:',error);}
     );
-    window.location.reload();
+    
+    
   }
-
   unarchiveNote(noteDetails : any): void {
    
-    // Update the isArchived property of the note
     this.noteDetails.isArchived = false;
     console.log(noteDetails);
      const obj1={
@@ -75,11 +88,11 @@ export class NotecardComponent{
      }
      this.noteService.archiveNoteCall(obj1).subscribe(
       ()=>{
-      console.log("Note unArchived successfully");
+      console.log("Note unArchived successfully"); 
+      this.updateArchiveList.emit(noteDetails);     
      },
      error => {console.error('Error:',error);}
     );
-    window.location.reload();
   }
 
   deleteNote(noteDetails : any): void{
@@ -89,11 +102,19 @@ export class NotecardComponent{
       "noteIdList":[this.noteDetails.id],
       "isDeleted":true
     }
+    const emitObj={
+      action:"archiveNote",
+      data:noteDetails
+     }
     this.noteService.deleteNoteCall(obj1).subscribe(
-      ()=>{console.log("Note Deleted successfully")},
+      ()=>{
+      console.log("Note Deleted successfully");
+      this.updateNoteList.emit(emitObj);
+      this.updateArchiveList.emit(noteDetails);
+    },
       error =>{console.log(error);}
     );
-    window.location.reload();
+    
   }
 
   restoreNote(noteDetails : any): void{
@@ -104,10 +125,11 @@ export class NotecardComponent{
       "isDeleted":false
     }
     this.noteService.deleteNoteCall(obj1).subscribe(
-      ()=>{console.log("Note restored successfully")},
+      ()=>{console.log("Note restored successfully");
+      this.updateTrashList.emit(noteDetails);},
       error =>{console.log(error);}
     );
-    window.location.reload();
+    
   }
 
   deletePermanently(noteDetails : any): void{
@@ -115,10 +137,13 @@ export class NotecardComponent{
       "noteIdList":[this.noteDetails.id],
     }
     this.noteService.deleteForeverCall(obj1).subscribe(
-      ()=>{console.log("Note Deleted permanently")},
+      ()=>{
+        console.log("Note Deleted permanently");
+      this.updateTrashList.emit(noteDetails);
+    },
       error =>{console.log(error);}
     );
-    window.location.reload();
+    
   }
 
   changeColor(color: string) {
@@ -127,7 +152,9 @@ export class NotecardComponent{
     "noteIdList":[this.noteDetails.id],
     "color":this.noteDetails.color    
     }
-    this.noteService.changeColorCall(obj1).subscribe(()=>{console.log("Note colored");},
+    this.noteService.changeColorCall(obj1).subscribe(()=>{
+    console.log("Note colored");
+  },
     error =>{console.log(error);}
     );
   }
