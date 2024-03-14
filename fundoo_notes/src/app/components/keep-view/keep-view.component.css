@@ -42,41 +42,24 @@
       margin-left: 10%;
   }
 
- @media only screen and (max-width:500px){ 
+ @media only screen and (max-width:700px){ 
     
-    .logo{
+    /* .logo{
         margin-left:2px;
     }
 
     #heading {
         margin-left: 2px;
-        
+
+    } */
+    #logout{
+       margin-left:auto;
     }
     .mat-toolbar-row{
         width: 100vw;
         display:flex;
     }
-    #search {
-        display:none;
-    }
-    .icon1{
-        display: none;
-    }
-    
-    .icon {
-        display:none;
-    }
-    
-    .app {
-        display:none;
-    }
-
-    #logout{
-        margin-left: 60vw;
-    }
-
-    #settings{
-        width:8%;
+    #search,.icon1,.icon,#settings,.app {
         display:none;
     }
     .container-content {

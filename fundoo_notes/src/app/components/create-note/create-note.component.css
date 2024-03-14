@@ -6,6 +6,7 @@
       align-items: center;
       gap:2%;
       padding:2%;
+
 }
 .inner-head{
       width:40vw;
@@ -52,6 +53,9 @@
       display:flex;
       gap:5%;
 }
+#cIcon{
+      width:auto;
+}
 #close{
       margin-left: 5rem;
       margin-bottom:3rem;
@@ -74,11 +78,11 @@
       border: 1px solid black;
     }
 
-@media only screen and (max-width:500px){ 
+@media only screen and (max-width:700px){ 
       .outer{
             width: 80vw;
             height: 8vh;
-            margin-left:22vw;
+            margin-left:14vw;
       }
       .inner-head{
             width: 60vw;
@@ -89,9 +93,15 @@
             height:40vh !important;
             margin-right: 20px;
       }
+      #remIcon,#iIcon,#coIcon{
+            display: none;
+      }
       .icon{
-            width: 60vw;
+            width: 80vw;
             height: 10vh;
+      }
+      #cIcon{
+            width:auto;
       }
       #close{
             width: 20px !important;

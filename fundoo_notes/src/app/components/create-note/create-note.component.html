@@ -19,11 +19,11 @@
                         <input class="desc" [(ngModel)]="description" type="text" placeholder="description">
                   </div>
                   <div class="icon">
-                  <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon"></mat-icon> 
-                  <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="collabrator icon"></mat-icon>             
+                  <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon" id="remIcon"></mat-icon> 
+                  <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="collabrator icon" id="coIcon"></mat-icon>             
                   <!-- <mat-icon svgIcon="color-palatte-icon" (click)="colorNote();" aria-hidden="false" aria-label="color pallatte icon"></mat-icon>  -->
                   <mat-icon class="color-palatte-icon" [matMenuTriggerFor]="colorMenu">
-                        <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color pallatte icon"></mat-icon>
+                        <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color pallatte icon" id="cIcon"></mat-icon>
                   </mat-icon>
                         <mat-menu #colorMenu="matMenu" class="colorMenu">                  
                               <button mat-menu-item>
@@ -38,11 +38,11 @@
                               </button>
                         </mat-menu>
                    
-                  <mat-icon svgIcon="img-icon" aria-hidden="false" aria-label="img icon"></mat-icon>        
+                  <mat-icon svgIcon="img-icon" aria-hidden="false" aria-label="img icon" id="iIcon"></mat-icon>        
                   <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="archive icon"></mat-icon> 
-                  <mat-icon svgIcon="more-icon" aria-hidden="false" aria-label="more icon"></mat-icon>
-                  <mat-icon svgIcon="undo-icon" aria-hidden="false" aria-label="more icon"></mat-icon>
-                  <mat-icon svgIcon="redo-icon" aria-hidden="false" aria-label="more icon"></mat-icon>
+                  <mat-icon svgIcon="trash-icon" aria-hidden="false" aria-label="trash icon"></mat-icon>
+                  <mat-icon svgIcon="undo-icon" aria-hidden="false" aria-label="undo icon"></mat-icon>
+                  <mat-icon svgIcon="redo-icon" aria-hidden="false" aria-label="redo icon"></mat-icon>
                   <button id="close" mat-raised-button color="primary" (click)="handleCreateNote('close')">Close</button>
                   </div>
                   

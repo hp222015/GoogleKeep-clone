@@ -43,6 +43,7 @@
       .note{
             width: 50vw !important;
             height: 9vh !important;
+            margin-left: 60px;
       }
       .note.top-shift{
            margin-top: 2px;

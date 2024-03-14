@@ -43,6 +43,11 @@ export class CreateNoteComponent  {
    
     this.takeNote=!this.takeNote
     this.shiftService.check(this.takeNote);
+    if(action=='open'){
+      this.title='',
+      this.description='',
+      this.color=''
+    }
     if (action =='close'){
         const noteObj:NoteObj = {
           "title" : this.title,

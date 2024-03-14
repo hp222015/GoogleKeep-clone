@@ -1,49 +1,66 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RegisterComponent } from'./register.component'
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, FormGroup, FormControl } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { FormBuilder } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox'; // Import MatCheckboxModule
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './register.component';
 import { UserService } from 'src/app/services/user_services/user.service';
-
-// beforeEach(async () => {
-//   await TestBed.configureTestingModule({
-//     declarations: [ LoginComponent ],
-//     imports: [ ReactiveFormsModule, RouterTestingModule, HttpClientTestingModule ], // Add HttpClientTestingModule here
-//     providers: [
-//       FormBuilder,
-//       { provide: UserService, useValue: userServiceSpy }
-//     ]
-//   })
-//   .compileComponents();
-
-//   userService = TestBed.inject(UserService) as jasmine.SpyObj<UserService>;
-// });
-
+import { HttpService } from 'src/app/services/http-service/http.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
-  let userServiceSpy: jasmine.SpyObj<UserService>;
+  let userService: UserService;
 
-  beforeEach(async() => {
-  userServiceSpy = jasmine.createSpyObj('UserService', ['registerUser']);
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RegisterComponent],
-      imports:[ReactiveFormsModule, RouterTestingModule, HttpClientTestingModule],
-      providers: [
-                  FormBuilder,
-                  { provide: UserService, useValue: userServiceSpy }
-                ]
-    }).compileComponents();    
+      declarations: [ RegisterComponent ],
+      imports: [ 
+        ReactiveFormsModule,
+        FormsModule,
+        RouterTestingModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCheckboxModule, // Import MatCheckboxModule here
+        BrowserAnimationsModule,
+        HttpClientTestingModule
+      ],
+      providers: [ UserService, HttpService]
+    })
+    .compileComponents();
   });
-  beforeEach(()=>{
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
+    userService = TestBed.get(UserService);
     fixture.detectChanges();
+
+    // Initialize registerForm here
+    component.RegisterForm = new FormGroup({
+      firstName: new FormControl(''),
+      lastName: new FormControl(''),
+      email: new FormControl(''),
+      password: new FormControl('')
+    });
   });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should initialize registerForm with empty fields', () => {
+    expect(component.RegisterForm.value).toEqual({ firstName: '', lastName: '', email: '', password: '' });
+  });
+
+  it('should set submitted to true when registerUser is called', () => {
+    component.registerUser();
+    expect(component.submitted).toBeTruthy();
+  });
+
 });
